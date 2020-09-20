@@ -18,10 +18,13 @@ def ask():
     print("Do you want to continue(y/n):", end="")
     ans = input()
     if ans.lower() == "y" or ans.lower() == "yes":
+        print("- represents letter in word")
+        for char in word:
+                print("-", end="")
         while turns > 0:
             if guesses != word_chars:
                 if turns == len(word)+3:
-                    chars = input("Enter a char of word:")
+                    chars = input("\nEnter a char of word:")
                     guess.append(chars)
                     guesses.append(chars)
                 else:
