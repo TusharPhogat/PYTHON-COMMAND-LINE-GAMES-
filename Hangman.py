@@ -19,8 +19,10 @@ def ask():
         while turns > 0 and guesses != word_chars:
             if turns == len(word)+3:
                 chars = input("Enter a char of word:")
+                guess.append(chars)
             else:
                 chars = input("\nEnter a char of word:")
+                guess.append(chars)
             if len(chars) == 1:
                 for char in word:
                     if char in guess:
