@@ -7,17 +7,14 @@ import time
 import numpy as np
 def split(word):
     for char in word:
-        return char
-def unique(list1): 
-    x = np.array(list1) 
-    return np.unique(x) 
+        return [char for char in word]  
+
 def ask():
     word = "test"
     word_chars = split(word)
-    word_chars = unique(word_chars)
+    word_chars = ['t','e','s']
     guess = []
     turns = 7
-    seperator = ''
     guesses = []
     print("Do you want to continue(y/n):", end="")
     ans = input()
@@ -31,6 +28,7 @@ def ask():
                 else:
                     chars = input("\nEnter a char of word:")
                     guess.append(chars)
+                    guesses.append(chars)
                 if len(chars) == 1:
                     for char in word:
                         if char in guess:
@@ -41,9 +39,12 @@ def ask():
                 else:
                     print("You need to enter a single character")
             else:
-                print("You Won!!!!")
+                print("\nYou Won!!!!")
                 print("Congratulations")
                 turns = 0
+            if turns == 0 and guesses != word_chars:
+                print("\nYou Lose!!")
+                print("Restart to play")
     elif ans.lower() == 'n' or ans.lower() == 'no':
         print("Exiting Hangman", end="")
         for i in range(0,3):
