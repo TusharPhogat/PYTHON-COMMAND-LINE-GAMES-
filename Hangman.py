@@ -5,8 +5,7 @@ It's still a work in progress
 """
 import time
 def split(word):
-    for char in word:
-        return [char for char in word]  
+    return [char for char in word]  
 
 def ask():
     word = "test"
